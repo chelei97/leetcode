@@ -7,30 +7,27 @@ import "fmt"
  */
 func main() {
 
-	prices := []int{7,6,4,3,1}
+	prices := []int{1,2,3,4,5}
 	fmt.Println(maxProfit(prices))
 
 }
 
 func maxProfit(prices []int) int {
-	if len(prices) == 0 {
+	if len(prices) == 0{
 		return 0
 	}
-	result := 0
-	price := prices[0]
-	for i := 1; i < len(prices); i ++ {
-		if prices[i] > price {
-			for i + 1 < len(prices) && prices[i + 1] > prices[i]{
-				i ++
-			}
-			result = result + prices[i] - price
-			if i + 1 < len(prices) {
-				price = prices[i + 1]
-			}
-		}
-		if prices[i] < price {
-			price = prices[i]
-		}
+	dp_0, dp_1 := 0, -prices[0]
+	for i := 0; i < len(prices); i ++ {
+		tmp := dp_0
+		dp_0 = Max2(dp_0, dp_1 + prices[i])
+		dp_1 = Max2(dp_1, tmp - prices[i])
 	}
-	return result
+	return dp_0
+}
+
+func Max2(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

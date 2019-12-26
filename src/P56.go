@@ -18,7 +18,7 @@ func merge1(intervals [][]int) [][]int {
 	for i := 0; i < len(intervals); {
 		j := i + 1
 		for j < len(intervals) && intervals[j][0] <= intervals[i][1]{
-			intervals[i][1] = max(intervals[i][1], intervals[j][1])
+			intervals[i][1] = Max(intervals[i][1], intervals[j][1])
 			j ++
 		}
 		result = append(result, intervals[i])
@@ -27,7 +27,7 @@ func merge1(intervals [][]int) [][]int {
 	return result
 }
 
-func max(a, b int) int {
+func Max(a, b int) int {
 	if a > b {
 		return a
 	}

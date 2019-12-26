@@ -6,7 +6,7 @@ import "fmt"
 x的平方根
  */
 func main(){
-	x := 300
+	x := 16
 	fmt.Println(mySqrt(x))
 }
 func mySqrt(x int) int {
