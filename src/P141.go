@@ -8,7 +8,7 @@ import "fmt"
 func main() {
 	nums := []int{1,2,3,4}
 	head := createList(nums)
-	fmt.Println(hasCycle(head))
+	fmt.Println(hasCycle(&head))
 }
 
 func hasCycle(head *ListNode) bool {
@@ -33,7 +33,5 @@ func hasCycle(head *ListNode) bool {
 	}
 	return false
 }
-type ListNode struct {
-	Val int
-	Next *ListNode
-}
+
+
