@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	path := "/a//b////c/d//././/.."
@@ -8,37 +11,25 @@ func main() {
 }
 
 func simplifyPath(path string) string {
-	res := []byte(path)
-	for i := 0; i < len(res); {
-		if res[i] == '.' && res[i + 1] == '.' {
-			tmp := 0
-			for j := 0; j < i - 1; j ++ {
-				if res[j] == '/' {
-					tmp = j
-				}
+	split := strings.Split(path, "/")
+	str := make([]string, 0)
+	for i := 0; i < len(split); i ++ {
+		if split[i] == "" {
+			continue
+		}else if split[i] == "." {
+			continue
+		}else if split[i] == ".." {
+			if len(str) == 0 {
+				continue
+			}else {
+				str = str[ : len(str) - 1]
 			}
-			for j := tmp; j < i + 2; j ++ {
-				res[j] = ' '
-			}
-			i = i + 3
-			continue
+		}else {
+			str = append(str, split[i])
 		}
-		if res[i] == '.' {
-			res[i] = ' '
-			res[i - 1] = ' '
-			i = i + 2
-			continue
-		}
-		if i != len(res) - 1 && res[i] == '/' && res[i + 1] == '/' {
-			res[i + 1] = ' '
-			i = i + 2
-			continue
-		}
-		i ++
 	}
-	if len(res) != 1 && res[len(res) - 1] == '/' {
-		res[len(res) - 1] = ' '
-	}
-	return string(res)
+	res := strings.Join(str, "/")
+	res = "/" + res
+	return res
 }
 

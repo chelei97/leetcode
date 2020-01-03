@@ -43,18 +43,3 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	return dummy.Next
 }
 
-type ListNode struct {
-	Val int
-	Next *ListNode
-}
-
-func CreateList(nums []int) *ListNode {
-	head := &ListNode{nums[0],nil}
-	temp := head
-	for i := 1; i < len(nums); i ++ {
-		this := ListNode{nums[i],nil}
-		temp.Next = &this
-		temp = temp.Next
-	}
-	return head
-}
