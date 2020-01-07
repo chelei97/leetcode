@@ -2,22 +2,6 @@ package main
 
 import "fmt"
 
-type ListNode struct {
-	Val int
-	Next *ListNode
-}
-
-func CreateList(nums []int) *ListNode {
-	head := &ListNode{nums[0],nil}
-	temp := head
-	for i := 1; i < len(nums); i ++ {
-		this := ListNode{nums[i],nil}
-		temp.Next = &this
-		temp = temp.Next
-	}
-	return head
-}
-
 func main() {
 	nums := []int{1,2,3,4}
 	head := CreateList(nums)
