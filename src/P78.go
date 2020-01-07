@@ -9,11 +9,11 @@ func main(){
 
 func subsets(nums []int) [][]int {
 	result := make([][]int, 0)
-	helper(nums, 0, &result, []int{})
+	helper6(nums, 0, &result, []int{})
 	return result
 }
 
-func helper(nums []int, first int, result *[][]int, combation []int) {
+func helper6(nums []int, first int, result *[][]int, combation []int) {
 	if first == len(nums){
 		x := make([]int, len(combation))
 		copy(x, combation)
@@ -22,14 +22,14 @@ func helper(nums []int, first int, result *[][]int, combation []int) {
 	}
 	for i := first; i <= len(nums); i ++ {
 		if i == len(nums) {
-			helper(nums, len(nums), result, combation)
+			helper6(nums, len(nums), result, combation)
 			if len(combation) > 0 {
 				combation = combation[:len(combation) - 1]
 			}
 			continue
 		}
 		combation = append(combation, nums[i])
-		helper(nums, i + 1, result, combation)
+		helper6(nums, i + 1, result, combation)
 		combation = combation[:len(combation) - 1]
 	}
 }
