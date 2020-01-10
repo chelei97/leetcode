@@ -10,7 +10,7 @@ type LRUCache struct {
 	record map[int]list.List
 }
 
-func Constructor(capacity int) LRUCache {
+func Constructor2(capacity int) LRUCache {
 	return LRUCache{record:make(map[int]list.List, capacity)}
 }
 

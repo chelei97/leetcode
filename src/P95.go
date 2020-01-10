@@ -2,12 +2,6 @@ package main
 
 import "fmt"
 
-type TreeNode struct {
-	Val int
-	Left *TreeNode
-	Right *TreeNode
-}
-
 func main() {
 	n := generateTrees(3)
 	fmt.Println(len(n))
