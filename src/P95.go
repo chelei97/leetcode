@@ -7,10 +7,3 @@ func main() {
 	fmt.Println(len(n))
 }
 
-var res []*TreeNode
-var record map[]
-func generateTrees(n int) []*TreeNode {
-	res := make([]*TreeNode, 0)
-
-	return res
-}

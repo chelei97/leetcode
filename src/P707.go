@@ -12,7 +12,7 @@ func toString1(this MyLinkedList) {
 }
 
 func main() {
-	obj := Constructor()
+	obj := Constructor11()
 	obj.AddAtHead(4)
 	toString1(obj)
 	obj.Get(1)
@@ -45,7 +45,7 @@ type myListNode struct {
 
 
 /** Initialize your data structure here. */
-func Constructor() MyLinkedList {
+func Constructor11() MyLinkedList {
 	ll := MyLinkedList{
 		len : 0,
 		head : &myListNode{},
